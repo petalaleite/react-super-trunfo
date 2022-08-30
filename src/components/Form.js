@@ -22,7 +22,7 @@ class Form extends React.Component {
       <section className="form">
         <form>
           <label htmlFor="name-input">
-            Nome
+            Name
             <input
               name="cardName"
               type="text"
@@ -31,7 +31,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="description-input">
-            Descrição
+            Description
             <textarea
               name="cardDescription"
               value={ cardDescription }
@@ -45,7 +45,7 @@ class Form extends React.Component {
               value={ cardAttr1 }
               onChange={ onInputChange }
             />
-            Attr1
+            Attack
           </label>
           <label htmlFor="attr2-input">
             <input
@@ -54,7 +54,7 @@ class Form extends React.Component {
               value={ cardAttr2 }
               onChange={ onInputChange }
             />
-            Attr2
+            Defense
           </label>
           <label htmlFor="attr3-input">
             <input
@@ -66,7 +66,7 @@ class Form extends React.Component {
             Attr3
           </label>
           <label htmlFor="image-input">
-            Imagem
+            Image
             <input
               name="cardImage"
               type="text"
@@ -83,8 +83,8 @@ class Form extends React.Component {
               onChange={ onInputChange }
             >
               <option value="normal">normal</option>
-              <option value="raro">raro</option>
-              <option value="muito raro">muito raro</option>
+              <option value="raro">rare</option>
+              <option value="muito raro">very rare</option>
             </select>
           </label>
           {
@@ -115,7 +115,7 @@ class Form extends React.Component {
               cardTrunfo,
             }) }
           >
-            Salvar
+            Save
           </button>
         </form>
       </section>
