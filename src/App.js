@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from './components/Card';
-import Form from './components/Form';
+import Button from 'react-bootstrap/Button'
+import CardComponent from './components/CardComponent';
+import FormComponent from './components/FormComponent';
 
 class App extends React.Component {
   state = {
@@ -116,7 +117,7 @@ class App extends React.Component {
     return (
       <>
         <h1>Super Trunfo Deck</h1>
-        <Form 
+        <FormComponent 
           cardName={ cardName }
           cardDescription={ cardDescription }
           cardAttr1={ cardAttr1 }
@@ -130,7 +131,7 @@ class App extends React.Component {
           onInputChange={ onInputChange }
           onSaveButtonClick={ onSaveButtonClick} />
 
-          <Card 
+          <CardComponent
             cardName={ cardName }
             cardDescription={ cardDescription }
             cardAttr1={ cardAttr1 }
@@ -143,7 +144,7 @@ class App extends React.Component {
           {
             saveDeck.map((deckCard) => (
               <>
-                <Card
+                <CardComponent
                   key={ deckCard.cardName }
                   cardName={ deckCard.cardName }
                   cardDescription={ deckCard.cardDescription }
@@ -155,11 +156,12 @@ class App extends React.Component {
                   cardTrunfo={ deckCard.cardTrunfo }
                   />
 
-                <button 
+                <Button
+                  variant="danger"
                   type='button'
                   onClick={ () => deleteCard(deckCard) } >
-                    Excluir
-                  </button>
+                    Delete
+                  </Button>
               </>
             ))
           }

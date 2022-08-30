@@ -1,7 +1,9 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
 import PropType from 'prop-types';
 
-class Form extends React.Component {
+class FormComponent extends React.Component {
   render() {
     const {
       cardName,
@@ -19,9 +21,8 @@ class Form extends React.Component {
     } = this.props;
 
     return (
-      <section className="form">
-        <form>
-          <label htmlFor="name-input">
+        <Form>
+          <Form.Label htmlFor="name-input">
             Name
             <input
               name="cardName"
@@ -29,16 +30,16 @@ class Form extends React.Component {
               value={ cardName }
               onChange={ onInputChange }
             />
-          </label>
-          <label htmlFor="description-input">
+          </Form.Label>
+          <Form.Label htmlFor="description-input">
             Description
             <textarea
               name="cardDescription"
               value={ cardDescription }
               onChange={ onInputChange }
             />
-          </label>
-          <label htmlFor="attr1-input">
+          </Form.Label>
+          <Form.Label htmlFor="attr1-input">
             <input
               name="cardAttr1"
               type="number"
@@ -46,8 +47,8 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
             Attack
-          </label>
-          <label htmlFor="attr2-input">
+          </Form.Label>
+          <Form.Label htmlFor="attr2-input">
             <input
               name="cardAttr2"
               type="number"
@@ -55,8 +56,8 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
             Defense
-          </label>
-          <label htmlFor="attr3-input">
+          </Form.Label>
+          <Form.Label htmlFor="attr3-input">
             <input
               name="cardAttr3"
               type="number"
@@ -64,8 +65,8 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
             Attr3
-          </label>
-          <label htmlFor="image-input">
+          </Form.Label>
+          <Form.Label htmlFor="image-input">
             Image
             <input
               name="cardImage"
@@ -74,34 +75,35 @@ class Form extends React.Component {
               value={ cardImage }
               onChange={ onInputChange }
             />
-          </label>
-          <label htmlFor="rare-input">
+          </Form.Label>
+          <Form.Label htmlFor="rare-input">
             Raridade
-            <select
+            <Form.Select
               name="cardRare"
               value={ cardRare }
               onChange={ onInputChange }
             >
               <option value="normal">normal</option>
-              <option value="raro">rare</option>
-              <option value="muito raro">very rare</option>
-            </select>
-          </label>
+              <option value="rare">rare</option>
+              <option value="very rare">very rare</option>
+            </Form.Select>
+          </Form.Label>
           {
             !hasTrunfo ? (
-              <label htmlFor="trunfo-input">
-                Super Trybe Trunfo
-                <input
+              <Form.Label htmlFor="trunfo-input">
+                Super Trunfo
+                <Form.Check
                   id="superTrunfo"
                   name="cardTrunfo"
                   type="checkbox"
                   checked={ cardTrunfo }
                   onChange={ onInputChange }
                 />
-              </label>
-            ) : <span>Você já tem um Super Trunfo em seu baralho</span>
+              </Form.Label>
+            ) : <span>You already have a Super Trunfo card in your deck</span>
           }
-          <button
+          <Button
+            variant="primary"
             type="button"
             disabled={ isSaveButtonDisabled }
             onClick={ () => onSaveButtonClick({
@@ -116,14 +118,13 @@ class Form extends React.Component {
             }) }
           >
             Save
-          </button>
-        </form>
-      </section>
+          </Button>
+        </Form>
     );
   }
 }
 
-Form.propTypes = {
+FormComponent.propTypes = {
   cardName: PropType.string,
   cardDescription: PropType.string,
   cardAttr1: PropType.string,
@@ -138,4 +139,4 @@ Form.propTypes = {
   onSaveButtonClick: PropType.func,
 }.isRequired;
 
-export default Form;
+export default FormComponent;
